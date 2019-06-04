@@ -276,33 +276,63 @@ body {
   .backgrounds {
     background-color: #FFFFFF; } }
 
-.vote {
+.reveal .vote {
   color: #FFFFFF;
   width: 100px;
   display: block; }
 
-.vote-yellow {
+.reveal .vote-yellow {
   background: #b58900; }
 
-.vote-violet {
+.reveal .vote-violet {
   background: #6c71c4; }
 
-.vote-green {
+.reveal .vote-green {
   background: #859900; }
 
-.vote-red {
+.reveal .vote-red {
   background: #cb4b16; }
 
-.vote-blue {
+.reveal .vote-blue {
   background: #268bd2; }
 
-.clickable-option {
+.reveal .round {
+  border-radius: 100%;
+  width: 200px; }
+
+.reveal .margin-top {
+  margin-top: 300px; }
+
+.reveal .dark-bg {
+  background: #007335; }
+
+.reveal span.dark-bg {
+  box-shadow: 15px 0 0 #007335, -15px 0 0 #007335; }
+
+.reveal .light-bg {
+  background: #3cb878; }
+
+.reveal span.light-bg {
+  box-shadow: 15px 0 0 #3cb878, -15px 0 0 #3cb878; }
+
+.reveal .left {
+  text-align: left;
+  position: absolute;
+  left: 0; }
+
+.reveal .minus-top {
+  top: -300px; }
+
+.reveal .inverted h1, .reveal .inverted h2, .reveal .inverted h3, .reveal .inverted h4, .reveal .inverted h5, .reveal .inverted h6 {
+  color: #FFFFFF; }
+
+.reveal .clickable-option {
   color: #FFFFFF;
   font-size: 1.5em;
   padding: 10%;
   border: none;
   border-radius: 5px; }
-  .clickable-option:disabled {
+  .reveal .clickable-option:disabled {
     opacity: 0.5; }
 
 @media (min-width: 1281px) {

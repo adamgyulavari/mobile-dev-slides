@@ -1,115 +1,124 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-		<title>reveal.js</title>
-
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/greenfox.css">
-
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
-
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>
-					<h1>Reveal.js</h1>
-					<h3>The HTML Presentation Framework</h3>
-					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> and <a href="https://github.com/hakimel/reveal.js/graphs/contributors">contributors</a></small>
-					</p>
-					<p id="lofasz"></p>
-				</section>
-
-				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
-				</section>
-
-				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
-					<p><span id="vote-for-1" class="vote vote-red" data-vote-name="first">0</span></p>
-					<p><span id="vote-for-2" class="vote vote-blue" data-vote-name="first">0</span></p>
-					<div class="votes">
-						<button class="clickable-option vote-red" data-option-name="vote-for-1">Vote for 1</button>
-						<button class="clickable-option vote-blue" data-option-name="vote-for-2">Vote for 2</button>
-					</div>
-				</section>
-
-				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
-				</section>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	
+	<title>reveal.js</title>
+	
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/greenfox.css">
+	
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+	
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-background="images/pixelblack.jpg">
+				<h1>Mobile Developer</h1>
+			</section>
+			<section>
+				<img src="images/aze.png" alt="Adam Gyulavari" class="round">
+				<h1>Gyulavári Ádám</h1>
+				<h4>ex android developer</h4>
+				<p>
+					Now mostly mentoring in any technology
+				</p>
+			</section>
+			<section data-background="images/dev.png" class="inverted">
+				<h2 class="left minus-top"><span class="dark-bg">So what does a mobile application developer do?</span></h2>
+			</section>
+			<section data-background="images/devices.jpg"
+				data-background-size="contain"
+				data-background-position="0 0">
+			<h2 class="margin-top">Have you ever thought about...</h2>
+			<p class="fragment">
+				...how many mobile devices are being used today?
+			</p>
+		</section>
+		<section data-background="#3cb878" class="inverted" data-transition="zoom">
+			<h1>NO?</h1>
+		</section>
+		<section>
+			<h2>Hello There</h2>
+			<p>
+				reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
+			</p>
+			<p><span id="vote-for-1" class="vote vote-red" data-vote-name="first">0</span></p>
+			<p><span id="vote-for-2" class="vote vote-blue" data-vote-name="first">0</span></p>
+			<div class="votes">
+				<button class="clickable-option vote-red" data-option-name="vote-for-1">Vote for 1</button>
+				<button class="clickable-option vote-blue" data-option-name="vote-for-2">Vote for 2</button>
 			</div>
-		</div>
+		</section>
+		
+		<section>
+			<h2>Hello There</h2>
+			<p>
+				reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
+			</p>
+		</section>
+	</div>
+</div>
 
-		<script src="js/reveal.js"></script>
+<script src="js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			document.addEventListener('voteArrived', (event) => {
-				let node = document.getElementById(event.detail)
-				node.innerText = parseInt(node.innerText) + 1
-				let count = 0
-				document.querySelectorAll(`span[data-vote-name=${node.getAttribute('data-vote-name')}]`).forEach(item => count += parseInt(item.innerText))
-				document.querySelectorAll(`span[data-vote-name=${node.getAttribute('data-vote-name')}]`).forEach(item => {
-					console.log(item)
-					let percent = 95 * parseInt(item.innerText) / count
-					console.log(percent)
-					item.setAttribute('style', `width:${5+percent}%;`)
-				})
-			})
-
-			document.querySelectorAll(".clickable-option").forEach(item => {
-				item.addEventListener("click", (e) => {
-					let nodeId = event.target.getAttribute("data-option-name")
-					let node = document.getElementById(nodeId)
-					document.querySelector( '.reveal' ).dispatchEvent(new CustomEvent("vote", {detail: nodeId}))
-					e.target.parentElement.querySelectorAll('.clickable-option').forEach(option => option.setAttribute("disabled", "disabled"))
-				})
-			});
-			Reveal.initialize({
-				multiplex: {
-					// Example values. To generate your own, see the socket.io server instructions.
-					secret: '15596599160907949212', // Obtained from the socket.io server. Gives this (the master) control of the presentation
-					id: '6b9e222cae8112bd', // Obtained from socket.io server
-					url: 'https://reveal-js-multiplex-ccjbegmaii.now.sh' // Location of socket.io server
-				},
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true },
-					{ src: '//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js', async: true },
-					{ src: 'plugin/multiplex/master.js', async: true },
-					{ src: 'plugin/multiplex/client.js', async: true },
-					{ src: 'plugin/multiplex/vote.js', async: true },
-					// and if you want speaker notes
-					// { src: 'plugin/notes-server/client.js', async: true }
-				]
-			});
-		</script>
-	</body>
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	document.addEventListener('voteArrived', (event) => {
+		let node = document.getElementById(event.detail)
+		node.innerText = parseInt(node.innerText) + 1
+		let count = 0
+		document.querySelectorAll(`span[data-vote-name=${node.getAttribute('data-vote-name')}]`).forEach(item => count += parseInt(item.innerText))
+		document.querySelectorAll(`span[data-vote-name=${node.getAttribute('data-vote-name')}]`).forEach(item => {
+			console.log(item)
+			let percent = 95 * parseInt(item.innerText) / count
+			console.log(percent)
+			item.setAttribute('style', `width:${5+percent}%;`)
+		})
+	})
+	
+	document.querySelectorAll(".clickable-option").forEach(item => {
+		item.addEventListener("click", (e) => {
+			let nodeId = event.target.getAttribute("data-option-name")
+			let node = document.getElementById(nodeId)
+			document.querySelector( '.reveal' ).dispatchEvent(new CustomEvent("vote", {detail: nodeId}))
+			e.target.parentElement.querySelectorAll('.clickable-option').forEach(option => option.setAttribute("disabled", "disabled"))
+		})
+	});
+	Reveal.initialize({
+		multiplex: {
+			// Example values. To generate your own, see the socket.io server instructions.
+			secret: '15596599160907949212', // Obtained from the socket.io server. Gives this (the master) control of the presentation
+			id: '6b9e222cae8112bd', // Obtained from socket.io server
+			url: 'https://reveal-js-multiplex-ccjbegmaii.now.sh' // Location of socket.io server
+		},
+		dependencies: [
+		{ src: 'plugin/markdown/marked.js' },
+		{ src: 'plugin/markdown/markdown.js' },
+		{ src: 'plugin/notes/notes.js', async: true },
+		{ src: 'plugin/highlight/highlight.js', async: true },
+		{ src: '//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js', async: true },
+		// { src: 'plugin/multiplex/master.js', async: true },
+		{ src: 'plugin/multiplex/client.js', async: true },
+		{ src: 'plugin/multiplex/vote.js', async: true },
+		// and if you want speaker notes
+		// { src: 'plugin/notes-server/client.js', async: true }
+		]
+	});
+</script>
+</body>
 </html>

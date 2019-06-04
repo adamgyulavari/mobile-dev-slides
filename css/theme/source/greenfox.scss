@@ -41,6 +41,7 @@ $backgroundColor: #FFFFFF;
 $linkColor: #3cb878;
 $linkColorHover: lighten( $linkColor, 20% );
 $selectionBackgroundColor: #5DF0AD;
+$smallPadding: 15px;
 
 // Background generator
 // @mixin bodyBackground() {
@@ -53,44 +54,87 @@ $selectionBackgroundColor: #5DF0AD;
 @import "../template/theme";
 // ---------------------------------------------
 
-.vote {
-	color: $backgroundColor;
-	width: 100px;
-	display: block;
-}
+.reveal {
+	
+	.vote {
+		color: $backgroundColor;
+		width: 100px;
+		display: block;
+	}
 
-.vote-yellow {
-	background: $yellow;
-}
+	.vote-yellow {
+		background: $yellow;
+	}
 
-.vote-violet {
-	background: $violet;
-}
+	.vote-violet {
+		background: $violet;
+	}
 
-.vote-green {
-	background: $green;
-}
+	.vote-green {
+		background: $green;
+	}
 
-.vote-red {
-	background: $orange;
-}
+	.vote-red {
+		background: $orange;
+	}
 
-.vote-blue {
-	background: $blue;
-}
+	.vote-blue {
+		background: $blue;
+	}
+
+	.round {
+		border-radius: 100%;
+		width: 200px;
+	}
+
+	.margin-top {
+		margin-top: 300px;
+	}
+
+	.dark-bg {
+		background: $mainColor;
+	}
+
+	span.dark-bg {
+		box-shadow: $smallPadding 0 0 $mainColor, -$smallPadding 0 0 $mainColor;
+	}
+
+	.light-bg {
+		background: $headingColor;
+	}
+
+	span.light-bg {
+		box-shadow: $smallPadding 0 0 $headingColor, -$smallPadding 0 0 $headingColor;
+	}
+
+	.left {
+		text-align: left;
+		position: absolute;
+		left: 0;
+	}
+
+	.minus-top {
+		top: -300px;
+	}
 
 
-.clickable-option {
-	color: $backgroundColor;
-	font-size: 1.5em;
-	padding: 10%;
-	border: none;
-	border-radius: 5px;
-	&:disabled {
-		opacity: 0.5;
+	.inverted {
+		h1, h2, h3, h4, h5, h6 {
+			color: $backgroundColor;
+		}
+	}
+
+	.clickable-option {
+		color: $backgroundColor;
+		font-size: 1.5em;
+		padding: 10%;
+		border: none;
+		border-radius: 5px;
+		&:disabled {
+			opacity: 0.5;
+		}
 	}
 }
-
 @media (min-width: 1281px) {
 	.clickable-option {
 		display: none;
