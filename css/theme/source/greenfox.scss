@@ -1,0 +1,98 @@
+/**
+ * Solarized Light theme for reveal.js.
+ * Author: Achim Staebler
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+
+// Include theme-specific fonts
+@import url(../../lib/font/league-gothic/league-gothic.css);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+
+/**
+ * Solarized colors by Ethan Schoonover
+ */
+html * {
+	color-profile: sRGB;
+	rendering-intent: auto;
+}
+
+$yellow:    #b58900;
+$orange:    #cb4b16;
+$red:       #dc322f;
+$magenta:   #d33682;
+$violet:    #6c71c4;
+$blue:      #268bd2;
+$cyan:      #2aa198;
+$green:     #859900;
+
+// Override theme settings (see ../template/settings.scss)
+$mainColor: #007335;
+$headingColor: #3cb878;
+$headingTextShadow: none;
+$backgroundColor: #FFFFFF;
+$linkColor: #3cb878;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: #5DF0AD;
+
+// Background generator
+// @mixin bodyBackground() {
+// 	@include radial-gradient( rgba($base3,1), rgba(lighten($base3, 20%),1) );
+// }
+
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+.vote {
+	color: $backgroundColor;
+	width: 100px;
+	display: block;
+}
+
+.vote-yellow {
+	background: $yellow;
+}
+
+.vote-violet {
+	background: $violet;
+}
+
+.vote-green {
+	background: $green;
+}
+
+.vote-red {
+	background: $orange;
+}
+
+.vote-blue {
+	background: $blue;
+}
+
+
+.clickable-option {
+	color: $backgroundColor;
+	font-size: 1.5em;
+	padding: 10%;
+	border: none;
+	border-radius: 5px;
+	&:disabled {
+		opacity: 0.5;
+	}
+}
+
+@media (min-width: 1281px) {
+	.clickable-option {
+		display: none;
+	}
+}
