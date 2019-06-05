@@ -58,8 +58,9 @@ $smallPadding: 15px;
 	
 	.vote {
 		color: $backgroundColor;
-		width: 100px;
-		display: block;
+		padding: 10px;
+		display: inline-block;
+		text-align: center;
 	}
 
 	.vote-yellow {
@@ -117,26 +118,67 @@ $smallPadding: 15px;
 		top: -300px;
 	}
 
+	.margin-minus-top {
+		margin-top: -300px;
+	}
+
+	.small {
+		font-size: small;
+		margin-top: 540px;
+	}
+
+	blockquote {
+		text-align: left;
+		box-shadow: none;
+		border-left: 2px solid $headingColor;
+		padding: 0 20px;
+		width: initial;
+		color: $headingColor;
+		font-style: normal;
+		
+		&.left {
+			margin: 20px 0;
+		}
+	}
 
 	.inverted {
 		h1, h2, h3, h4, h5, h6 {
 			color: $backgroundColor;
+		}
+		blockquote {
+			color: $backgroundColor;
+			border-left-color: $backgroundColor;
 		}
 	}
 
 	.clickable-option {
 		color: $backgroundColor;
 		font-size: 1.5em;
-		padding: 10%;
+		padding: 3%;
+		margin: 1%;
+		width: 40%;
 		border: none;
 		border-radius: 5px;
 		&:disabled {
 			opacity: 0.5;
 		}
 	}
+
+	.results {
+		display: none;
+	}
+
+	img.no-border {
+		border: none;
+	}
 }
 @media (min-width: 1281px) {
 	.clickable-option {
 		display: none;
+	}
+
+	.results {
+		display: block !important;
+		width: 100%;
 	}
 }

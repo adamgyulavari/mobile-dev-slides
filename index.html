@@ -51,43 +51,110 @@
 			<h1>NO?</h1>
 		</section>
 		<section>
-			<h2>Hello There</h2>
+			<h2>Let's play a game then</h2>
 			<p>
-				reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
+				Scan this QR code and open it in the browser.
 			</p>
-			<p><span id="vote-for-1" class="vote vote-red" data-vote-name="first">0</span></p>
-			<p><span id="vote-for-2" class="vote vote-blue" data-vote-name="first">0</span></p>
+			<img src="images/qr-github.png" alt="https://adamgyulavari.github.io/mobile-dev-slides">
+		</section>
+		<section>
+			<h1>Now you should see this too</h1>
+			<p>If you've missed the QR code, just type <code>dev.mobil.ninja</code> in your browser</p>
+		</section>
+		<section>
+			<h2>So how many types of Android devices are there?</h2>
+			<div class="left results">
+				<p id="vote-for-1a" data-vote-name="first" data-votes="0" data-vote-display="Around 100">
+					<span class="vote vote-red">0</span>
+					<span class="result-display">Around 100</span>
+				</p>
+				<p id="vote-for-1b" data-vote-name="first" data-votes="0" data-vote-display="Around 5000">
+					<span class="vote vote-blue">0</span>
+					<span class="result-display">Around 5000</span>
+				</p>
+				<p id="vote-for-1c" data-vote-name="first" data-votes="0" data-vote-display="Around 25000">
+					<span class="vote vote-yellow">0</span>
+					<span class="result-display">Around 25000</span>
+				</p>
+				<p id="vote-for-1d" data-vote-name="first" data-votes="0" data-vote-display="Around a million">
+					<span class="vote vote-green">0</span>
+					<span class="result-display">Around a million</span>
+				</p>
+			</div>
 			<div class="votes">
-				<button class="clickable-option vote-red" data-option-name="vote-for-1">Vote for 1</button>
-				<button class="clickable-option vote-blue" data-option-name="vote-for-2">Vote for 2</button>
+				<button class="clickable-option vote-red" data-option-name="vote-for-1a">~100</button>
+				<button class="clickable-option vote-blue" data-option-name="vote-for-1b">~5000</button>
+				<button class="clickable-option vote-yellow" data-option-name="vote-for-1c">~25000</button>
+				<button class="clickable-option vote-green" data-option-name="vote-for-1d">~a million</button>
 			</div>
 		</section>
-		
-		<section>
-			<h2>Hello There</h2>
-			<p>
-				reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-			</p>
+		<section data-background="images/over24000.png" class="inverted">
+			<h2 class="left minus-top fragment"><span class="light-bg">Over 24000, right?</span></h2>
 		</section>
+
+		<section data-background="#007335" class="inverted">
+			<h1>So honestly what do we do mostly?</h1>
+		</section>
+		<section data-background="images/peter.gif" data-background-size="auto" data-background-repeat="repeat"></section>
+		<section data-background="images/phones.jpg"
+				data-background-size="contain"
+				data-background-position="bottom">
+			<div class="margin-minus-top">
+				<h2>Playtime</h2>
+			</div>
+		</section>
+		<section data-background="images/farm.png" class="inverted">
+			<h2 class="left minus-top"><span class="dark-bg">Mobile device farms</span></h2>
+		</section>
+		<section data-background="images/filling-the-glass.gif">
+			<h3>Know your physics</h3>
+		</section>
+		<section data-background="images/bundes2.png" data-background-size="contain" class="inverted">
+			<h3><span class="light-bg">Feel the game</span></h3>
+		</section>
+		<section data-background="images/playboy.png" data-background-size="contain">
+			<h3><span>Or something else</span></h3>
+			<p class="small">thanks supercharge.io for the images</p>
+		</section>
+		<section data-background="images/success.jpg">
+			<blockquote class="minus-top left">From where comes the success?</blockquote>
+		</section>
+		<section>
+			<h2>the unpredictable</h2>
+			<img src="images/iamrich.jpg" alt="I am Rich app">
+		</section>
+		<section data-background="images/winvenn.png" data-background-color="#d9d9d9" data-background-size="contain"></section>
 	</div>
 </div>
 
 <script src="js/reveal.js"></script>
-
 <script>
 	// More info about config & dependencies:
 	// - https://github.com/hakimel/reveal.js#configuration
 	// - https://github.com/hakimel/reveal.js#dependencies
+	let getVotes = (node) => parseInt(node.getAttribute('data-votes'))
 	document.addEventListener('voteArrived', (event) => {
 		let node = document.getElementById(event.detail)
-		node.innerText = parseInt(node.innerText) + 1
+		let currentVotes = getVotes(node) + 1
 		let count = 0
-		document.querySelectorAll(`span[data-vote-name=${node.getAttribute('data-vote-name')}]`).forEach(item => count += parseInt(item.innerText))
-		document.querySelectorAll(`span[data-vote-name=${node.getAttribute('data-vote-name')}]`).forEach(item => {
-			console.log(item)
-			let percent = 95 * parseInt(item.innerText) / count
-			console.log(percent)
-			item.setAttribute('style', `width:${5+percent}%;`)
+		node.setAttribute('data-votes', currentVotes)
+		document.querySelectorAll(`[data-vote-name=${node.getAttribute('data-vote-name')}]`).forEach(item => count += getVotes(item))
+		document.querySelectorAll(`[data-vote-name=${node.getAttribute('data-vote-name')}]`).forEach(item => {
+			let bar = item.querySelector('.vote')
+			let display = item.querySelector('.result-display')
+			let percent = 100 * getVotes(item) / count
+			let text = `${item.getAttribute('data-vote-display')} (${getVotes(item)} votes)`
+			console.log(text)
+			if(percent > 60) {
+				bar.innerText = `${getVotes(item)} - ${item.getAttribute('data-vote-display')}`
+				display.innerText = `${percent.toFixed(0)}%`
+			} else {
+				bar.innerText = getVotes(item)
+				display.innerText = `${percent.toFixed(0)}% ${item.getAttribute('data-vote-display')}`
+			}
+			if(percent > 0) {
+				bar.setAttribute('style', `width:${percent/100*85}%;`)
+			}
 		})
 	})
 	
@@ -99,7 +166,10 @@
 			e.target.parentElement.querySelectorAll('.clickable-option').forEach(option => option.setAttribute("disabled", "disabled"))
 		})
 	});
+
 	Reveal.initialize({
+		controls: false,
+		touch: false,
 		multiplex: {
 			// Example values. To generate your own, see the socket.io server instructions.
 			secret: '15596599160907949212', // Obtained from the socket.io server. Gives this (the master) control of the presentation
@@ -112,7 +182,7 @@
 		{ src: 'plugin/notes/notes.js', async: true },
 		{ src: 'plugin/highlight/highlight.js', async: true },
 		{ src: '//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js', async: true },
-		// { src: 'plugin/multiplex/master.js', async: true },
+		{ src: 'plugin/multiplex/master.js', async: true },
 		{ src: 'plugin/multiplex/client.js', async: true },
 		{ src: 'plugin/multiplex/vote.js', async: true },
 		// and if you want speaker notes
